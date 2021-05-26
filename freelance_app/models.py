@@ -3,13 +3,12 @@ from django.conf import settings
 from django.db.models import CASCADE
 
 
-class OfferStatusChoices(models.TextChoices):
-    NEW = "NEW", "Новый"
-    IN_PROGRESS = "IN_PROGRESS", "В процессе"
-    DONE = "DONE", "Выполнен"
-
-
 class Offer(models.Model):
+    STATUSES = (
+        ("NEW", "Новый"),
+        ("IN_PROGRESS", "В процессе"),
+        ("DONE", "Выполнен")
+    )
     customer = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=CASCADE
@@ -17,8 +16,8 @@ class Offer(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
     status = models.CharField(
-        choices=OfferStatusChoices.choices,
-        default=OfferStatusChoices.NEW,
+        choices=STATUSES,
+        default="NEW",
         max_length=255
     )
     payment = models.PositiveIntegerField()

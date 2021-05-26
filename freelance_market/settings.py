@@ -40,7 +40,6 @@ INSTALLED_APPS = [
 
     'freelance_app',
     'rest_framework',
-    'rest_framework.authtoken',
     'django_filters',
 ]
 
@@ -72,6 +71,12 @@ TEMPLATES = [
         },
     },
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}
 
 WSGI_APPLICATION = 'freelance_market.wsgi.application'
 
