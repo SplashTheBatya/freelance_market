@@ -12,12 +12,12 @@ services:
     image: django_freelance_market
     build: .
     environment:
-      DJANGO_SETTINGS_MODULE: freelance_market.settings
-      DEBUG: 1
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: user
-      POSTGRES_DB: freelance_market
-      POSTGRES_HOST: postgres
+      - DJANGO_SETTINGS_MODULE=freelance_market.settings
+      - DEBUG=1
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=user
+      - POSTGRES_DB=freelance_market
+      - POSTGRES_HOST=postgres
     command: python manage.py runserver 0.0.0.0:8000
     ports:
       - "8000:8000"

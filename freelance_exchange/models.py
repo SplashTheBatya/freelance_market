@@ -1,6 +1,6 @@
 from django.db import models
-from django.conf import settings
 from django.db.models import CASCADE
+from user.models import User
 
 
 class Offer(models.Model):
@@ -10,7 +10,7 @@ class Offer(models.Model):
         ("DONE", "Выполнен")
     )
     customer = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
+        User,
         on_delete=CASCADE
     )
     title = models.CharField(max_length=255)
@@ -18,14 +18,14 @@ class Offer(models.Model):
     status = models.CharField(
         choices=STATUSES,
         default="NEW",
-        max_length=255
+        max_length=15
     )
     payment = models.PositiveIntegerField()
 
 
 class Response(models.Model):
     freelancer = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
+        User,
         on_delete=CASCADE
     )
     commentary = models.TextField()

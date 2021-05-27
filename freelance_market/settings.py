@@ -38,9 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'freelance_app',
-    'rest_framework',
     'django_filters',
+    'rest_framework',
+    #'rest_framework.authtoken',
+
+    'user',
+    'freelance_exchange',
+
 ]
 
 MIDDLEWARE = [
@@ -91,7 +95,7 @@ DATABASES = {
         'USER': os.environ.get('POSTGRES_USER', default='user'),
         'PASSWORD': os.environ.get('POSTGRES_PASSWORD', default='user'),
         'HOST': os.environ.get('POSTGRES_HOST', default='localhost'),
-        'PORT': "5432"
+        'PORT': os.environ.get('POSTGRES_PORT', default='5432')
     }
 }
 
