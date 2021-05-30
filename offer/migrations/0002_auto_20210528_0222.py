@@ -7,7 +7,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('freelance_exchange', '0001_initial'),
+        ('offer', '0001_initial'),
     ]
 
     operations = [
