@@ -57,7 +57,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'freelance_market.urls'
+ROOT_URLCONF = 'urls'
 
 TEMPLATES = [
     {
@@ -82,7 +82,7 @@ REST_FRAMEWORK = {
     ]
 }
 
-WSGI_APPLICATION = 'freelance_market.wsgi.application'
+WSGI_APPLICATION = 'wsgi.application'
 
 
 # Database
