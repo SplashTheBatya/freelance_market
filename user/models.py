@@ -1,8 +1,9 @@
 from django.contrib.auth.base_user import AbstractBaseUser
+from django.contrib.auth.models import User
 from django.db import models
 
 
-class User(AbstractBaseUser):
+class MyUser(User):
     ROLES = (
         ('freelancer', 'Исполнитель'),
         ('customer', 'Заказчик'),
@@ -12,4 +13,4 @@ class User(AbstractBaseUser):
         default='customer',
         max_length=20,
     )
-    balance = models.PositiveIntegerField()
+    balance = models.PositiveIntegerField(default=0)

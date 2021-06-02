@@ -11,7 +11,8 @@ class Offer(models.Model):
     )
     customer = models.ForeignKey(
         User,
-        on_delete=CASCADE
+        on_delete=CASCADE,
+        related_name='offer_customer'
     )
     title = models.CharField(max_length=255)
     description = models.TextField()
@@ -26,6 +27,10 @@ class Offer(models.Model):
 class Response(models.Model):
     freelancer = models.ForeignKey(
         User,
+        on_delete=CASCADE
+    )
+    offer = models.ForeignKey(
+        Offer,
         on_delete=CASCADE
     )
     commentary = models.TextField()
